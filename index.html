@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>General Knowledge Quiz</title>
+<link href="style.css" rel="stylesheet"/>
+<script src="js/script.js"></script>
+</head>
+<body>
+<img src="logo.png" width= "200" height="100"> 
+<div id="container">
+<header>	
+<h1>General Knowledge Quiz</h1>
+</header>
+<section>
+<form name="quizForm" onsubmit="return submitAnswers()">
+<h3>1. Which is the largest coffee producing state of India? </h3>
+<input type="radio" name="q1" value="a" id="q1a">a. Kerala<br>
+<input type="radio" name="q1" value="b" id="q1b">b. Tamil Nadu<br>
+<input type="radio" name="q1" value="c" id="q1c">c. Karnataka<br>
+
+<h3>2. Which state has the largest area </h3>
+<input type="radio" name="q2" value="a" id="q2a">a. Maharashtra<br>
+<input type="radio" name="q2" value="b" id="q2b">b. Uttar Pradesh<br>
+<input type="radio" name="q2" value="c" id="q2c">c. Rajasthan<br>
+
+<h3>3. Which state has the largest population </h3>
+<input type="radio" name="q3" value="a" id="q3a">a. Uttar Pradesh<br>
+<input type="radio" name="q3" value="b" id="q3b">b. Maharashtra<br>
+<input type="radio" name="q3" value="c" id="q3c">c. Karnataka<br>
+
+<h3>4. In What state is the Elephant Falls located? </h3>
+<input type="radio" name="q4" value="a" id="q4a">a. Orssia<br>
+<input type="radio" name="q4" value="b" id="q4b">b. Manipur<br>
+<input type="radio" name="q4" value="c" id="q4c">c. Meghalaya<br>
+<br>
+<h3>5. India is a federal union comprising twenty-nine states and how many union territories? </h3>
+<input type="radio" name="q5" value="a" id="q5a">a. 6<br>
+<input type="radio" name="q5" value="b" id="q5b">b. 7<br>
+<input type="radio" name="q5" value="c" id="q5c">c. 8<br>
+<br>
+<h3>6. First Individual Olympic medal winner from independent India? </h3>
+<input type="radio" name="q6" value="a" id="q6a">a. K D Jadav<br>
+<input type="radio" name="q6" value="b" id="q6b">b. Harihar Banerjee<br>
+<input type="radio" name="q6" value="c" id="q6c">c. Pradip Bode<br>
+<br>
+<h3>7. In which stadium Sachin Tendulkar completed his 100th Century? </h3>
+<input type="radio" name="q7" value="a" id="q7a">a. Eden Garden<br>
+<input type="radio" name="q7" value="b" id="q7b">b. Shere Bangla Stadium<br>
+<input type="radio" name="q7" value="c" id="q7c">c. Firoz Shah Kotla Ground<br>
+<br>
+<h3>8. Who are the highest run socres from India in the World Cup Cricket final match 1983? </h3>
+<input type="radio" name="q8" value="a" id="q8a">a. M Amarnath<br>
+<input type="radio" name="q8" value="b" id="q8b">b. Kapil Dev<br>
+<input type="radio" name="q8" value="c" id="q8c">c. K Srikkanth<br>
+<br>
+<h3>9. Who was India's First football captain </h3>
+<input type="radio" name="q9" value="a" id="q9a">a. Talimeren Ao<br>
+<input type="radio" name="q9" value="b" id="q9b">b. S C Goswami<br>
+<input type="radio" name="q9" value="c" id="q9c">c. P K Banerjee<br>
+<br>
+<h3>10 Who is longest serving Prime Minister of India (21 June 1991 to 16 May 1996) </h3>
+<input type="radio" name="q10" value="a" id="q10a">a. P V Narasimha Rao<br>
+<input type="radio" name="q10" value="b" id="q10b">b. Rajiv Gandhi<br>
+<input type="radio" name="q10" value="c" id="q10c">c. H D Deve Gowda<br>
+<br><br>
+<div id="results"></div>
+<input type="submit" value="Submit Answers">
+</form>
+<script>
+function submitAnswers(){
+	var total = 10;
+	var score = 0;
+	
+	// Get User Input
+	var q1 = document.forms["quizForm"]["q1"].value;
+	var q2 = document.forms["quizForm"]["q2"].value;
+	var q3 = document.forms["quizForm"]["q3"].value;
+	var q4 = document.forms["quizForm"]["q4"].value;
+	var q5 = document.forms["quizForm"]["q5"].value;
+	var q6 = document.forms["quizForm"]["q6"].value;
+	var q7 = document.forms["quizForm"]["q7"].value;
+	var q8 = document.forms["quizForm"]["q8"].value;
+	var q9 = document.forms["quizForm"]["q9"].value;
+	var q10 = document.forms["quizForm"]["q10"].value;
+	
+	// validation
+	for(i = 1; i <= total;i++){
+		if(eval ('q'+i) == null || eval ('q'+i) == ''){
+		alert('You missed question '+ i);
+		return false;
+		}
+	}
+	// Set Correct Answers
+	var answers = ["c","c","a","c","c","a","b","c","a","a",]; 
+	
+	// Check Answers
+	for(i = 1; i <= total;i++){
+	if(eval('q'+i) == answers[i - 1]){
+			score++;
+			}
+		}
+		// Display Results
+		var results = document.getElementById('results');
+		results.innerHTML = '<h3>You scored <span>'+score+'</span> out of <span>'+total+'</span></h3>';
+		alert('You Score '+score+' out of ' +total);
+		
+		return false;
+}
+</script>
+</section>
+<footer>
+<p> All Rights Reserved goup Online Learner 2020 </p>
+</footer>
+</div>
+</body>
+</html>
